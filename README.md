@@ -53,7 +53,7 @@ Aplicativo instalado no celular, que consome a API para exibir dados ao usuário
 
 ---
 
-# 📘 README COMPLETO – DESENVOLVIMENTO MOBILE COM KOTLIN
+# DESENVOLVIMENTO MOBILE COM KOTLIN
 
 ## 📌 Objetivo
 
@@ -142,68 +142,6 @@ Define a interface com componentes como `Button`, `TextView`, `EditText`, etc.
 | `AndroidManifest.xml`  | Configura o app e permissões           |
 | `build.gradle`         | Declara dependências e versões do app  |
 
----
-
-## 🧪 Exemplo de Código Kotlin
-
-```kotlin
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val botao = findViewById<Button>(R.id.botao)
-        botao.setOnClickListener {
-            Toast.makeText(this, "Olá, Sylvia!", Toast.LENGTH_SHORT).show()
-        }
-    }
-}
-```
-
----
-
-## 🔌 Comunicação com API (Retrofit)
-
-```kotlin
-interface ApiService {
-    @GET("usuarios")
-    suspend fun getUsuarios(): List<Usuario>
-}
-```
-
----
-
-## 🗄️ Banco de Dados Local (Room)
-
-```kotlin
-@Entity
-data class Usuario(
-    @PrimaryKey val id: Int,
-    val nome: String
-)
-
-@Dao
-interface UsuarioDao {
-    @Query("SELECT * FROM Usuario")
-    fun listar(): List<Usuario>
-}
-```
-
----
-
-## 📦 Exemplo de dependências no `build.gradle`
-
-```kotlin
-dependencies {
-    implementation "androidx.appcompat:appcompat:1.6.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
-    implementation "androidx.recyclerview:recyclerview:1.3.1"
-    implementation "androidx.room:room-runtime:2.6.1"
-    kapt "androidx.room:room-compiler:2.6.1"
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
-}
-```
 
 ---
 
